@@ -1,0 +1,11 @@
+{
+  "name": "fit-qa-demo-sut",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicacion de banca minima con defectos plantados, usada como sistema bajo prueba en las demostraciones del QA Agentico.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  }
+}
