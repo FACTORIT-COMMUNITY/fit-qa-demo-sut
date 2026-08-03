@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiBanco - Deudas</title>
+</head>
+<body>
+  <header><h1>MiBanco</h1></header>
+  <main>
+    <!-- DEFECTO PLANTADO 1: el total ignora todas las deudas salvo la primera.
+         $150.000 + $50.000 deberia dar $200.000 y muestra $150.000. -->
+    <table id="tabla-deudas">
+      <tr><th>Concepto</th><th>Monto</th></tr>
+      <tr><td>Tarjeta de credito</td><td>$150.000</td></tr>
+      <tr><td>Credito de consumo</td><td>$50.000</td></tr>
+      <tr><th>Total</th><th id="total">$150.000</th></tr>
+    </table>
+    <!-- DEFECTO PLANTADO 2: el boton lleva a una pantalla de error en vez de
+         procesar el pago o confirmar. -->
+    <form action="pagar.html" method="get">
+      <button id="pagar" type="submit">Pagar todo</button>
+    </form>
+  </main>
+  <footer><small>MiBanco 2026 - demo</small></footer>
+</body>
+</html>

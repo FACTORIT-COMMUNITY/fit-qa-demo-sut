@@ -23,9 +23,29 @@ rapida y barata), tener **defectos conocidos de antemano** (para poder verificar
 encontro o no) y ser **realista** en su forma (una app web con rutas, formularios y datos), para
 que el ejercicio se parezca a un caso de verdad.
 
-## Como levantarla
+## Dos formas de usarla
 
-No tiene dependencias: solo Node.
+| | Servidor Node (`server.mjs`) | GitHub Pages (`docs/`) |
+|---|---|---|
+| Como se accede | `npm start` en tu maquina | https://factorit-community.github.io/fit-qa-demo-sut/ |
+| Necesita instalar algo | Node | Nada, es una URL |
+| Sirve para | Pruebas de UI **y de API/protocolo** | Pruebas de **UI** (caja negra) |
+| `/pagar` responde | **HTTP 500** | HTTP 200 con una pantalla de error |
+| Ruta desconocida | La home, con HTTP 200 | La home, con HTTP 404 |
+
+**Cual usar.** Para una demostracion rapida por URL, o cuando no se quiere clonar ni instalar
+nada, la version de Pages alcanza: los dos defectos se ven igual en pantalla. Para probar
+**codigos de estado HTTP** hay que usar el servidor Node, porque Pages solo sirve archivos
+estaticos y **no puede emitir un 500**.
+
+> [!IMPORTANT]
+> Las dos versiones muestran los mismos sintomas al usuario, pero **no son equivalentes a nivel de
+> protocolo**. Un agente que pruebe la version de Pages via API vera 200 donde el Node devuelve
+> 500. Si el ejercicio incluye verificar codigos de estado, usa el servidor Node.
+
+### Levantar el servidor Node
+
+No tiene dependencias.
 
 ```bash
 npm start

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiBanco - Error</title>
+</head>
+<body>
+  <header><h1>MiBanco</h1></header>
+  <main>
+    <!-- DEFECTO PLANTADO 2 (version estatica).
+         En la version Node esta ruta responde HTTP 500. GitHub Pages solo sirve
+         archivos estaticos y no puede emitir un 500, asi que aca el sintoma
+         visible se conserva (el usuario cae en una pantalla de error en vez de
+         una confirmacion) pero el codigo de estado es 200. Para probar el
+         comportamiento a nivel de protocolo hay que usar el servidor Node. -->
+    <h2 id="error">Internal Server Error</h2>
+    <p id="detalle">Internal Server Error: pagos no implementado</p>
+    <a href="deudas.html">Volver a mis deudas</a>
+  </main>
+  <footer><small>MiBanco 2026 - demo</small></footer>
+</body>
+</html>
