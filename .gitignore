@@ -1,0 +1,6 @@
+# Salida del agente de QA. Cuando se prueba este SUT en modo white-box, el agente
+# monta el repositorio y escribe su corrida en qa/auto/<run_id>/. Son resultados
+# de quien prueba, no del sistema probado: no se versionan aca.
+qa/
+
+node_modules/
