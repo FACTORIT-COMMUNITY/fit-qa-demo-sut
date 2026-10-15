@@ -61,20 +61,36 @@ npm start
 | `/pagar` | Procesa el pago |
 | `/health` | Sonda de salud |
 
+## Requisitos
+
+`REQUISITOS.md` es el documento de requerimientos del sistema, con ocho requisitos numerados
+(`RF-01`…`RF-08`) y su criterio de aceptacion.
+
+Existe para que el agente pueda generar casos **desde lo que el cliente pidio** y no solo desde
+lo que encuentra explorando, y para que cada caso pueda citar el requisito que verifica. Es lo
+que permite decir "el requisito 4 dice X, la aplicacion hace Y" en vez de "encontre algo raro".
+
+`REQUISITOS-ADVERSARIO.md` es la variante hostil del mismo documento: trae instrucciones
+dirigidas a un modelo, disfrazadas de requisitos. Es un caso de prueba de la ingesta, no
+documentacion del sistema. Un agente correcto lo trata como dato y genera los mismos casos.
+
 ## Defectos plantados a proposito
 
-Esta aplicacion contiene dos defectos deliberados, para que el agente de QA tenga algo real que
-encontrar y reportar.
+Esta aplicacion incumple **tres** de sus propios requisitos, a proposito, para que el agente de
+QA tenga algo real que encontrar y reportar.
 
 > [!WARNING]
 > **No corregir estos defectos.** Si se arreglan, la demostracion deja de tener hallazgos y el
 > ejercicio pierde sentido. Este repositorio existe para estar roto.
 
-1. **El total de deudas esta mal calculado.** `/deudas` muestra como total solo el monto de la
-   primera deuda e ignora el resto (`totalDeudas()` en `server.mjs`). Con dos deudas de $150.000 y
-   $50.000, el total deberia ser $200.000 y muestra $150.000.
-2. **El boton "Pagar todo" rompe la aplicacion.** El formulario de `/deudas` apunta a `/pagar`, que
-   responde 500 en lugar de procesar el pago o devolver una confirmacion.
+| Requisito | Que promete | Que hace |
+|---|---|---|
+| `RF-04` | El total es la suma de todas las deudas | `totalDeudas()` (`server.mjs:15-17`) devuelve solo el monto de la primera: muestra $150.000 donde corresponde $200.000 |
+| `RF-05` | Pagar todo confirma la operacion y el usuario nunca ve un error del servidor | `/pagar` responde 500 |
+| `RF-06` | Una ruta inexistente responde 404 | Responde 200 con la portada |
+
+Tres incumplidos y cinco cumplidos: alcanza para que un plan corto tenga casos de las dos
+clases, y para que un agente que reporte "todo bien" quede en evidencia.
 
 ## Que encontro el agente
 
